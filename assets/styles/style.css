@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+:root{
+    --bg-color: #f7f8fb;
+    --card-bg: rgba(255,255,255,0.9);
+    --accent: #8b1fbf; /* warm purple */
+    --accent-2: #ff6b6b; /* coral */
+    --muted: #6b7280;
+    --container: 1100px;
+}
+
+*{box-sizing: border-box}
+body{
+    margin:0;
+    font-family: 'Poppins', system-ui, -apple-system, s'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background-image: url('/assets/bapsbg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #111827;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+.container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+/* Header */
+.site-header{background:rgb(142, 18, 18);color:#fff;padding:18px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{
+    display:grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    align-items:center;
+    column-gap:14px;
+}
+.logo img{
+    width:75px;height:75px;padding:4px;box-sizing:content-box;
+    /* place image to span both rows so text stacks to the right */
+    grid-row: 1 / span 2;
+}
+.logo h1{margin:0;font-size:1.25rem;letter-spacing:0.6px;grid-column:2}
+.logo .sub{margin:0;font-size:0.8rem;opacity:0.9;grid-column:2}
+.nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-left:18px;font-weight:600;padding:6px 8px;border-radius:8px;transition:background .18s ease}
+.nav a:hover{background:rgba(255,255,255,0.06)}
+.nav a.btn.ghost{padding:8px 12px;border:1px solid rgba(255,255,255,0.18);border-radius:6px}
+
+/* Hero */
+.hero{position:relative;min-height:420px;display:flex;align-items:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,0.0), rgba(0,0,0,0.35));}
+.hero-content{position:relative;z-index:2;padding:48px 20px}
+.event-card{background:var(--card-bg);padding:28px;border-radius:12px;max-width:720px;margin:0 auto;text-align:left;box-shadow:0 8px 30px rgba(2,6,23,0.12)}
+.event-card h2{margin:0 0 8px;font-size:1.6rem;color:var(--accent)}
+.event-card .lead{margin:0 0 10px;color:var(--muted)}
+.event-card .lead{line-height:1.35}
+.meta{display:flex;gap:12px;color:var(--muted);margin:12px 0;align-items:center}
+.desc{color:#374151;margin-bottom:16px}
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600;transition:transform .15s ease,box-shadow .15s ease}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 6px 18px rgba(139,31,191,0.14)}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(139,31,191,0.18)}
+.btn.ghost{background:transparent;border:1px solid #eee;color:#fff}
+
+/* Video Section */
+.section-title{font-family:"Quicksand", sans-serif; font-weight: lighter; text-align:center;font-size:2rem;margin:24px 30px 24px;color:#0f172ad2}
+.video-container{max-width:1000px;margin:12px auto;position:relative;z-index:1}
+.iframe-wrap{position:relative;width:100%;padding-top:56.25%;background:#00000000;border-radius:10px;overflow:hidden;box-shadow:0 8px 30px rgba(2,6,23,0.12)}
+.iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;z-index:2}
+p{font-weight: lighter; font-size: x-small;}
+/* Event Details */
+.event-details{margin-top:22px;padding:18px;background:rgba(255,255,255,0.6);border-radius:8px}
+
+/* Footer */
+.site-footer{padding:10px 0;background:linear-gradient(180deg, rgba(0,0,0,0.05), rgba(255,255,255,0.0));color:var(--muted)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+/* Responsive */
+@media (max-width: 1000px){
+    .header-inner{padding:0 10px}
+    .event-card{max-width:640px;padding:22px}
+    .video-container{max-width:860px}
+}
+
+@media (max-width: 768px){
+    .header-inner{flex-direction:column;align-items:flex-start;gap:10px}
+    .nav{width:100%;display:flex;gap:10px;flex-wrap:wrap}
+    .nav a{margin-left:0}
+    .hero{min-height:360px}
+    .event-card{max-width:100%;padding:20px;border-radius:10px}
+    .container{padding:0 16px}
+    .footer-inner{flex-direction:column;align-items:flex-start}
+    .meta{gap:8px}
+}
+
+@media (max-width:480px){
+    /* Compact, touch-friendly mobile layout */
+    .event-card h2{font-size:1.15rem;margin-bottom:6px}
+    .event-card .lead{font-size:0.95rem}
+    .hero{min-height:260px;padding:18px 0}
+    .hero-content{padding:20px 10px}
+    .section-title{margin: 27px 80px 27px;font-weight: normal; font-size: 1.25rem; text-align: center;      }
+    .video-section{padding:18px 0}
+    /* Make iframe use full-width 16:9 ratio on mobile */
+    .iframe-wrap{border-radius:8px; padding-top:56.25%; position:relative; overflow:hidden; box-shadow:0 8px 24px rgba(2,6,23,0.12); min-height:200px}
+    .iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0; display:block; z-index:2}
+    .iframe-wrap, .video-container{ width:100%;padding:0 8px; max-width:none}
+    .meta{flex-direction:column;align-items:flex-start}
+    /* Make the primary CTA a full-width, easy-to-tap button */
+    .btn.primary{display:block;width:100%;text-align:center;padding:12px 14px;border-radius:10px}
+    .nav{width:100%;display:flex;gap:8px;flex-wrap:wrap}
+    .nav a{flex:1;text-align:center;padding:10px 8px;margin-left:0;background:rgba(255,255,255,0.04)}
+    .logo h1{font-size: 0.8rem;}
+    .logo .sub{font-size:0.70rem}
+    .logo img{ display: none}
+    .container{padding:0 10px}
+    .footer-inner{flex-direction:column; font-size:8px; align-items:right;text-align:right}
+}
+
+/* small accessibility focus states */
+.nav a:focus,.btn:focus{outline:3px solid rgba(139,31,191,0.16);outline-offset:3px}
+
+/* Overrides to ensure iframe is visible and responsive */
+.video-container{ position:relative; z-index:1; }
+.iframe-wrap{
+  /* keep 16:9 ratio but ensure a minimum height so it never collapses */
+  position:relative !important;
+  padding-top:56.25% !important;
+  min-height:220px; /* ensures visibility on very small viewports */
+  overflow:hidden;
+  border-radius:10px;
+  background:#000;
+  box-shadow:0 8px 30px rgba(2,6,23,0.12);
+}
+.iframe-wrap iframe{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  border:0 !important;
+  z-index:2 !important;
+}
+
+/* Make sure mobile rules don't accidentally collapse the iframe */
+@media (max-width:480px){
+.video-section{ position:relative; z-index:1; }
+  .iframe-wrap{ min-height:200px; padding-top:56.25% !important; }
+  .iframe-wrap iframe{ position:absolute !important; height:100% !important; }
+}
+
