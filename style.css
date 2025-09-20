@@ -12,7 +12,7 @@
 body{
     margin:0;
     font-family: 'Poppins', system-ui, -apple-system, s'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    background-image: url('/assets/bapsbg.jpg');
+    background-image: url('assets/bapsbg.jpg');
     background-size: cover;
     background-position: center;
     color: #111827;
